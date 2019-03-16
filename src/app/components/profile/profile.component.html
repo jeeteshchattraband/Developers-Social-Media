@@ -1,0 +1,61 @@
+<div class="box">
+  <div class="input-group mb-3 box">
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="font-weight-bold">Sharing-Code</h1>
+        <p class="font-italic">Welcome to the new social network for developers </p>
+      </div>
+    </div>
+    <div class="container">
+      <form (ngSubmit)="agregar()" class="input-group mb-3">
+        <input type="text" placeholder="Send a message" name="mesage" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2"
+          [(ngModel)]="item.mesage">
+        <button class="btn btn-outline" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="container">
+      <div class="card border-info mb-3" *ngFor="let item of items">
+        <div class="card-header">
+          <img src="https://raw.githubusercontent.com/DiLeyRa/red-social-angular/master/src/images/perfil.png" class="rounded-circle"
+            style="height: 40px;">
+        </div>
+        <div class="card-body text-info">
+          <h5 class="card-title">{{item.mesage}}</h5>
+          <div class="float-right" (click)="eliminar(item)">
+            <i class="fa fa-trash"></i>
+          </div>
+          <div class="float-right mx-3" (click)="editar(item)" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-pencil"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{editarItem.mesage}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="agregarItemEditado()" class="input-group mb-3">
+            <input type="text" placeholder="Editar mensaje" name="mesage" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2"
+              [(ngModel)]="editarItem.mesage">
+            <button class="btn btn-outline-secondary" type="submit">Editar</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

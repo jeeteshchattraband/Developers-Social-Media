@@ -1,0 +1,14 @@
+#capa1
+{ 
+  z-index:1;
+  background-color:#FFFFFF;
+  height:12px;
+}
+#capa2
+{
+  z-index:0;
+  display:block;
+  margin:auto;
+  width:1000px;
+  height:500px;
+}
